@@ -1,0 +1,8 @@
+{
+  "LiferayTheme": {
+    "appServerPath": "../bundles/tomcat",
+    "deployPath": "../../bundles/deploy",
+    "deploymentStrategy": "Other",
+    "url": "http://localhost:8080"
+  }
+}
