@@ -89,7 +89,7 @@ jobs:
            restore-keys: ${{ runner.os }}-m2
        - name: Dist Bundle
          id: dist_bundle
-         run: ./mvnw bundle-support:dist -Dliferay.workspace.environment=${{ matrix.target_env  }}
+         run: ./mvnw package bundle-support:dist -Dliferay.workspace.environment=${{ matrix.target_env  }}
        - name: Upload Bundles
          id: upload_bundles
          uses: actions/upload-release-asset@v1
