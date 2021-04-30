@@ -1,0 +1,10 @@
+Bundle-Name: my-service-builder-api
+Bundle-SymbolicName: com.github.lgdd.my.service.builder.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.github.lgdd.my.service.builder.exception,\
+	com.github.lgdd.my.service.builder.model,\
+	com.github.lgdd.my.service.builder.service,\
+	com.github.lgdd.my.service.builder.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../my-service-builder-service/service.xml
