@@ -90,6 +90,9 @@ jobs:
        - name: Dist Bundle
          id: dist_bundle
          run: ./mvnw package bundle-support:dist -Dliferay.workspace.environment=${{ matrix.target_env  }}
+       - name: Zip Bundle
+         id: zip_bundle
+         run: tar xvf ./target/${{ github.event.repository.name }}.tar.gz --directory target && zip -r ./target/${{ github.event.repository.name }}.zip ./target/${{ github.event.repository.name }}
        - name: Upload Bundles
          id: upload_bundles
          uses: actions/upload-release-asset@v1
@@ -97,8 +100,8 @@ jobs:
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
          with:
            upload_url: ${{ needs.create_release.outputs.upload_url }}
-           asset_path: ./target/${{ github.event.repository.name }}.tar.gz
-           asset_name: ${{ github.event.repository.name }}-${{ matrix.target_env  }}-jdk${{ matrix.java  }}.tar.gz
+           asset_path: ./target/${{ github.event.repository.name }}.zip
+           asset_name: ${{ github.event.repository.name }}-${{ matrix.target_env  }}-jdk${{ matrix.java  }}.zip
            asset_content_type: application/zip
        - name: Rollback Release
          if: failure() && needs.create_release.outputs.id != ''
