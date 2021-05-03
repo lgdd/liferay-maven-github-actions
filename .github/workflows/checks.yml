@@ -24,7 +24,7 @@ jobs:
         restore-keys: ${{ runner.os }}-m2
       - name: Run Maven Test
         id: run_maven_test
-        run: ./gradlew test
+        run: ./mvnw test
       - name: Run Maven Source Formatting
         id: run_maven_source_formatting
         run: ./mvnw source-formatter:format
