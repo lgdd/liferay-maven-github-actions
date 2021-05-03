@@ -17,11 +17,11 @@ jobs:
         with:
           java-version: ${{ matrix.java }}
       - name: Cache Maven packages
-      uses: actions/cache@v2
-      with:
-        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-        path: ~/.m2
-        restore-keys: ${{ runner.os }}-m2
+        uses: actions/cache@v2
+        with:
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          path: ~/.m2
+          restore-keys: ${{ runner.os }}-m2
       - name: Run Maven Test
         id: run_maven_test
         run: ./mvnw test
