@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-    <artifactId>liferay-maven-github-actions-modules</artifactId>
-    <groupId>com.github.lgdd</groupId>
-    <version>1.0.0</version>
-  </parent>
+		<artifactId>liferay-maven-github-actions-modules</artifactId>
+		<groupId>com.github.lgdd</groupId>
+		<version>1.0.0</version>
+	</parent>
 	<groupId>com.github.lgdd.my.mvc.portlet</groupId>
 	<artifactId>my-mvc-portlet</artifactId>
 	<version>1.0.0</version>
@@ -130,6 +130,13 @@
 					<excludes>
 						<exclude>**/META-INF/resources/**/.sass-cache/</exclude>
 					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.liferay</groupId>
+				<artifactId>com.liferay.source.formatter</artifactId>
+				<configuration>
+					<baseDir>src/main</baseDir>
 				</configuration>
 			</plugin>
 		</plugins>

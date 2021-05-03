@@ -13,8 +13,11 @@
 	<name>liferay-maven-github-actions</name>
 	<properties>
 		<liferay.bom.version>7.3.6</liferay.bom.version>
-		<liferay.workspace.bundle.url>https://releases-cdn.liferay.com/portal/7.3.6-ga7/liferay-ce-portal-tomcat-7.3.6-ga7-20210301155526191.tar.gz</liferay.workspace.bundle.url>
-		<liferay.repository.url>https://repository-cdn.liferay.com/nexus/content/groups/public/</liferay.repository.url>
+		<liferay.workspace.bundle.url>
+	  https://releases-cdn.liferay.com/portal/7.3.6-ga7/liferay-ce-portal-tomcat-7.3.6-ga7-20210301155526191.tar.gz
+		</liferay.workspace.bundle.url>
+		<liferay.repository.url>https://repository-cdn.liferay.com/nexus/content/groups/public/
+		</liferay.repository.url>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencyManagement>
@@ -55,6 +58,15 @@
 		</repository>
 	</repositories>
 	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>com.liferay</groupId>
+					<artifactId>com.liferay.source.formatter</artifactId>
+					<version>1.0.1110</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>com.liferay</groupId>
@@ -70,14 +82,14 @@
 					</execution>
 
 					<!--
-					<execution>
-						<id>init</id>
-						<goals>
-							<goal>init</goal>
-						</goals>
-						<phase>initialize</phase>
-					</execution>
-					-->
+		  <execution>
+			<id>init</id>
+			<goals>
+			  <goal>init</goal>
+			</goals>
+			<phase>initialize</phase>
+		  </execution>
+		  -->
 
 					<execution>
 						<id>deploy</id>
@@ -92,10 +104,10 @@
 						<goals>
 							<goal>dist</goal>
 						</goals>
-                        <phase>post-integration-test</phase>
-                        <configuration>
-                            <format>zip</format>
-                        </configuration>
+						<phase>post-integration-test</phase>
+						<configuration>
+							<format>zip</format>
+						</configuration>
 					</execution>
 
 				</executions>

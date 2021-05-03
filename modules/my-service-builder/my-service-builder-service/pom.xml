@@ -46,6 +46,13 @@
 					<sqlFileName>tables.sql</sqlFileName>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>com.liferay</groupId>
+				<artifactId>com.liferay.source.formatter</artifactId>
+				<configuration>
+					<baseDir>src/main</baseDir>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>
