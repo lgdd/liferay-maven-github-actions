@@ -1,0 +1,30 @@
+name: Checks
+
+on: [ push, pull_request ]
+
+jobs:
+  run_checks:
+    name: Run Checks
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: [ 8, 11 ]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK
+        id: setup_jdk
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ matrix.java }}
+      - name: Cache Maven packages
+      uses: actions/cache@v2
+      with:
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        path: ~/.m2
+        restore-keys: ${{ runner.os }}-m2
+      - name: Run Maven Test
+        id: run_maven_test
+        run: ./gradlew test
+      - name: Run Maven Source Formatting
+        id: run_maven_source_formatting
+        run: ./mvnw source-formatter:format
